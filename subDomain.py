@@ -92,7 +92,7 @@ subnum = 'python tool/subnum/script.py ' + domain + ' >> result/' + file
 crtsh_enum_psql = 'python3 tool/the-art-of-subdomain-enumeration/crtsh_enum_psql.py ' + domain + ' >>' + 'result/'+ file
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('', username='', password='', key_filename='')
+ssh.connect('3.124.189.163', username='bitnami', password='', key_filename='tool/LightsailDefaultKey-eu-central-1.pem')
 if domain:
     if domain.endswith(check) == False:
         print('ERROR: Pleas Check Domain')
