@@ -1,8 +1,0 @@
-aquatone-discover -d uber.com
-aquatone-scan -d uber.com -t 30 -p small
-
-screenshot
-
-webscreenshot -i /root/aquatone/domain.com/urls.txt -o domain.com
-
-epg-prep uber.com
