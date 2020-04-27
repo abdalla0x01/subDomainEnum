@@ -97,14 +97,14 @@ passhunt = 'python3 tool/Passivehunter/passivehunter.py ' + domain  + ' >> resul
 subfi = 'subfinder -d ' +  domain + ' -o ' + '.test/' + rando1
 subfifile = 'cat ' + '.test/' + rando1 + ' >> result/' + file
 #securitytrails
-commd  = 'curl --url https://api.securitytrails.com/v1/domain/'+domain+'/subdomains   --header "apikey: OyCXaiWSyGXt7t3WegehSIiYgaRiBDe8" | awk \'BEGIN{FS="\\""} { for (i=2; i<=NF; i++) print $i }\' | sed "s/,//g"  | cut -d ":" -f  1  | sort -u  | sort -u | sed "s/\\// /g" | sed "s/ /\\n/g" | sort -u  > .test/'+rando3+';for i in $(cat .test/'+rando3+');do echo $i"."'+domain+';done >> result/'+domain+''
+commd  = 'curl --url https://api.securitytrails.com/v1/domain/'+domain+'/subdomains   --header "apikey: " | awk \'BEGIN{FS="\\""} { for (i=2; i<=NF; i++) print $i }\' | sed "s/,//g"  | cut -d ":" -f  1  | sort -u  | sort -u | sed "s/\\// /g" | sed "s/ /\\n/g" | sort -u  > .test/'+rando3+';for i in $(cat .test/'+rando3+');do echo $i"."'+domain+';done >> result/'+domain+''
 #sublist3r
 sublist3r = 'python3 tool/Sublist3r/sublist3r.py -d ' + domain + ' -o .test/' + rando2
 sublistfile = 'cat .test/' + rando2 + ' | awk \'BEGIN{FS="<BR>"} { for (i=2; i<=NF; i++) print $i }\' ' + '>> result/' + file
 #brute
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('3.122.237.234', username='bitnami', password='', key_filename='tool/LightsailDefaultKey-eu-central-1.pem')
+ssh.connect('', username='bitnami', password='', key_filename='')
 print(amass)
 if domain:
     if domain.endswith(check) == False:
